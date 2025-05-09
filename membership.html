@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noisecore | Join Membership</title>
+    <link rel="stylesheet" href="../css/membership.css">
+</head>
+<body>
+    <header>
+        <h1>Noisecore</h1>
+    </header>
+    <button id="menu-toggle">Menu</button>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About</a>
+        <a href="deals.html">Deals</a>
+        <a href="membership.html" class="active">Join Membership</a>
+    </nav>
+    <main>
+        <section class="membership-section">
+            <h2>Become a Member</h2>
+            <form id="membership-form" novalidate>
+                <div class="form-group">
+                    <label for="name">Name<span>*</span></label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email<span>*</span></label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Gender<span>*</span></label>
+                    <div class="gender-options">
+                        <label><input type="radio" name="gender" value="male"> Male</label>
+                        <label><input type="radio" name="gender" value="female"> Female</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="dob">Date of Birth<span>*</span></label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password<span>*</span></label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group checkbox-group">
+                    <label>
+                        <input type="checkbox" id="agreement" name="agreement" required>
+                        I agree to the terms and conditions<span>*</span>
+                    </label>
+                </div>
+                <button type="submit" class="btn">Join Now</button>
+                <div id="form-errors"></div>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Noisecore</p>
+    </footer>
+    <script src="../js/script.js"></script>
+    <script src="../js/membership.js"></script>
+</body>
+</html>

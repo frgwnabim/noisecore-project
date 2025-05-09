@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noisecore | Products</title>
+    <link rel="stylesheet" href="../css/products.css">
+</head>
+<body>
+    <header>
+        <h1>Noisecore</h1>
+    </header>
+    <button id="menu-toggle">Menu</button>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="products.html" class="active">Products</a>
+        <a href="about.html">About</a>
+        <a href="deals.html">Deals</a>
+        <a href="membership.html">Join Membership</a>
+    </nav>
+    <main>
+        <section class="product-filter">
+            <label for="category">Filter by Category:</label>
+            <select id="category">
+                <option value="all">All</option>
+                <option value="headphones">Headphones</option>
+                <option value="earbuds">Earbuds</option>
+                <option value="speakers">Speakers</option>
+                <option value="open-ear">Open-Ear Earbuds</option>
+            </select>
+        </section>
+        <section class="product-gallery">
+            <div class="product-list">
+                <!-- Headphones -->
+                <div class="product-card" data-category="headphones">
+                    <img src="../assets/headphone1.jpg" alt="Headphone X1">
+                    <h3>Headphone X1</h3>
+                    <p>⭐⭐⭐⭐☆</p>
+                    <p>$199</p>
+                </div>
+                <div class="product-card" data-category="headphones">
+                    <img src="../assets/headphone2.jpg" alt="Headphone Pro">
+                    <h3>Headphone Pro</h3>
+                    <p>⭐⭐⭐⭐⭐</p>
+                    <p>$249</p>
+                </div>
+                <!-- Earbuds -->
+                <div class="product-card" data-category="earbuds">
+                    <img src="../assets/earbud1.jpg" alt="Earbud Lite">
+                    <h3>Earbud Lite</h3>
+                    <p>⭐⭐⭐⭐☆</p>
+                    <p>$99</p>
+                </div>
+                <div class="product-card" data-category="earbuds">
+                    <img src="../assets/earbud2.jpg" alt="Earbud Max">
+                    <h3>Earbud Max</h3>
+                    <p>⭐⭐⭐⭐⭐</p>
+                    <p>$149</p>
+                </div>
+                <!-- Speakers -->
+                <div class="product-card" data-category="speakers">
+                    <img src="../assets/speaker1.jpg" alt="Speaker Boom">
+                    <h3>Speaker Boom</h3>
+                    <p>⭐⭐⭐⭐☆</p>
+                    <p>$179</p>
+                </div>
+                <div class="product-card" data-category="speakers">
+                    <img src="../assets/speaker2.jpg" alt="Speaker Mini">
+                    <h3>Speaker Mini</h3>
+                    <p>⭐⭐⭐⭐☆</p>
+                    <p>$129</p>
+                </div>
+                <!-- Open-Ear Earbuds -->
+                <div class="product-card" data-category="open-ear">
+                    <img src="../assets/openear1.jpg" alt="Open-Ear Air">
+                    <h3>Open-Ear Air</h3>
+                    <p>⭐⭐⭐⭐☆</p>
+                    <p>$159</p>
+                </div>
+                <div class="product-card" data-category="open-ear">
+                    <img src="../assets/openear2.jpg" alt="Open-Ear Sport">
+                    <h3>Open-Ear Sport</h3>
+                    <p>⭐⭐⭐⭐⭐</p>
+                    <p>$179</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Noisecore</p>
+    </footer>
+    <script src="../js/script.js"></script>
+    <script src="../js/products.js"></script>
+</body>
+</html>
