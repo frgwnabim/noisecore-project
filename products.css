@@ -160,13 +160,14 @@ nav a:hover {
 }
 
 .product-card {
-    background: #f2f4f8;
+    background: #fff;
     border-radius: 16px;
-    box-shadow: 0 2px 8px rgba(30,30,30,0.07);
+    box-shadow: 0 4px 18px rgba(30,30,30,0.13), 0 1.5px 0 #ececec;
+    border: 1.5px solid #e6e6e6;
     padding: 1rem;
     width: 180px;
     text-align: center;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
 }
 
 .product-card img {
@@ -175,7 +176,14 @@ nav a:hover {
     object-fit: cover;
     border-radius: 10px;
     margin-bottom: 0.7rem;
-    background: #fff;
+    border: 1px solid #ececec;
+    background: #f7f7f7;
+}
+
+.product-card:hover {
+    transform: translateY(-6px) scale(1.04);
+    box-shadow: 0 8px 28px rgba(30,30,30,0.18), 0 1.5px 0 #ececec;
+    border-color: #ffb347;
 }
 
 .product-card h3 {
