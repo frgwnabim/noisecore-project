@@ -2,41 +2,11 @@ function transitionToPage(url, type = "fade") {
     document.body.classList.remove("fade-in", "fade-out", "slide-out", "scale-out");
     document.body.classList.add(`${type}-out`);
     setTimeout(() => {
-      window.location.href = url;
-    }, 400); 
-  }
-  window.addEventListener("pageshow", () => {
-    document.body.classList.add("trans-enter");
-    setTimeout(() => {
-      document.body.classList.add("trans-enter-active");
-      document.body.classList.remove("trans-enter");
-    }, 10);
-  });
-  
-  document.addEventListener("DOMContentLoaded", function () {
-    document.body.classList.add("fade-in");
-  
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', function (e) {
-        if (
-          this.hostname === window.location.hostname &&
-          !this.classList.contains('active')
-        ) {
-          e.preventDefault();
-          transitionToPage(this.href, "fade");
-        }
-      });
-    });
-  });
-
-  function transitionToPage(url, type = "fade") {
-    document.body.classList.remove("fade-in", "fade-out", "slide-out", "scale-out");
-    document.body.classList.add(`${type}-out`);
-    setTimeout(() => {
         window.location.href = url;
     }, 400);
 }
 
+// Entry animation on page show
 window.addEventListener("pageshow", () => {
     document.body.classList.add("trans-enter");
     setTimeout(() => {
@@ -57,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Hide nav on link click (mobile)
+    // Hide nav on link click (mobile) and handle page transition
     document.querySelectorAll('nav a').forEach(link => {
         link.addEventListener('click', function (e) {
             if (
@@ -74,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Optional: close nav if window resized to desktop
+    //close nav if window resized to desktop
     window.addEventListener('resize', function () {
         if (window.innerWidth > 768 && nav) {
             nav.classList.remove('active');

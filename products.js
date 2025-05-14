@@ -1,20 +1,14 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Filter products by category
     const select = document.getElementById('category');
     const cards = document.querySelectorAll('.product-card');
-    select.addEventListener('change', function() {
+    select.addEventListener('change', function () {
         const value = select.value;
         cards.forEach(card => {
-            if (value === 'all' || card.dataset.category === value) {
-                card.style.display = '';
-            } else {
-                card.style.display = 'none';
-            }
+            card.style.display = (value === 'all' || card.dataset.category === value) ? '' : 'none';
         });
     });
 
-
-    // Responsive product card columns
     function adjustProductLayout() {
         const productList = document.querySelector('.product-list');
         if (!productList) return;
@@ -29,9 +23,8 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', adjustProductLayout);
     adjustProductLayout();
 
-    // Optional: Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
                 e.preventDefault();
@@ -39,24 +32,22 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+    let modal = document.getElementById('product-modal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'product-modal';
+        modal.style.display = 'none';
+        modal.innerHTML = `
+            <div class="modal-backdrop"></div>
+            <div class="modal-content">
+                <button class="modal-close">&times;</button>
+                <div class="modal-body"></div>
+            </div>
+        `;
+        document.body.appendChild(modal);
 
-    // --- Product Detail Modal ---
-    // Create modal element
-    let modal = document.createElement('div');
-    modal.id = 'product-modal';
-    modal.style.display = 'none';
-    modal.innerHTML = `
-        <div class="modal-backdrop"></div>
-        <div class="modal-content">
-            <button class="modal-close">&times;</button>
-            <div class="modal-body"></div>
-        </div>
-    `;
-    document.body.appendChild(modal);
-
-    // Modal CSS (quick inline for demo, move to CSS file for production)
-    const style = document.createElement('style');
-    style.innerHTML = `
+        const style = document.createElement('style');
+        style.innerHTML = `
 #product-modal {
     position: fixed; z-index: 9999; left: 0; top: 0; width: 100vw; height: 100vh;
     display: flex; align-items: center; justify-content: center;
@@ -85,32 +76,43 @@ document.addEventListener('DOMContentLoaded', function() {
     from { opacity: 0; transform: scale(0.92) translateY(30px);}
     to { opacity: 1; transform: scale(1) translateY(0);}
 }
-    `;
-    document.head.appendChild(style);
+        `;
+        document.head.appendChild(style);
+    }
 
-    // Show modal with product details
     cards.forEach(card => {
         card.style.cursor = "pointer";
-        card.addEventListener('click', function() {
+        card.addEventListener('click', function () {
             const img = card.querySelector('img');
             const title = card.querySelector('h3');
             const rating = card.querySelectorAll('p')[0];
-            const price = card.querySelectorAll('p')[1];
+            const price = card.querySelectorAll('p')[1] || card.querySelectorAll('p')[0];
+
+            let priceHtml = "";
+            if (price) {
+                const promo = price.querySelector('.promo-price');
+                const original = price.querySelector('.original-price');
+                if (promo && original) {
+                    priceHtml = `
+                        <span class="promo-price">${promo.textContent}</span>
+                        <del class="original-price">${original.textContent}</del>
+                    `;
+                } else {
+                    priceHtml = price.innerHTML;
+                }
+            }
 
             document.querySelector('#product-modal .modal-body').innerHTML = `
                 <img src="${img ? img.src : ''}" alt="${img ? img.alt : ''}" style="width:100%;border-radius:12px;margin-bottom:1rem;">
                 <h3 style="margin:0 0 0.5rem 0;">${title ? title.textContent : ''}</h3>
                 <div style="font-size:1.2rem;margin-bottom:0.5rem;">${rating ? rating.textContent : ''}</div>
-                <div style="font-size:1.1rem;font-weight:bold;margin-bottom:1.2rem;">${price ? price.textContent : ''}</div>
+                <div style="font-size:1.1rem;font-weight:bold;margin-bottom:1.2rem;">${priceHtml}</div>
             `;
             modal.style.display = 'flex';
         });
     });
 
-    // Close modal on close button or backdrop click
+    const closeModal = () => { modal.style.display = 'none'; };
     modal.querySelector('.modal-close').onclick = closeModal;
     modal.querySelector('.modal-backdrop').onclick = closeModal;
-    function closeModal() {
-        modal.style.display = 'none';
-    }
 });

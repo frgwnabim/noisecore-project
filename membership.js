@@ -8,27 +8,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Name validation
         const name = document.getElementById("name").value.trim();
-        if (name.length === 0) {
-            errors.push("Name is required.");
-        }
+        if (!name) errors.push("Name is required.");
 
-        // Email validation (simple, no regex)
+        // Email validation
         const email = document.getElementById("email").value.trim();
-        if (email.length === 0) {
+        if (!email) {
             errors.push("Email is required.");
         } else if (!(email.includes("@") && email.includes("."))) {
             errors.push("Please enter a valid email address.");
         }
 
-        // Gender validation (only male or female)
+        // Gender validation
         const genderInputs = document.querySelectorAll('input[name="gender"]');
-        let genderSelected = false;
-        genderInputs.forEach(input => {
-            if (input.checked) genderSelected = true;
-        });
-        if (!genderSelected) {
-            errors.push("Please select your gender.");
-        }
+        const genderSelected = Array.from(genderInputs).some(input => input.checked);
+        if (!genderSelected) errors.push("Please select your gender.");
 
         // Date of Birth validation (must not be empty and at least 13 years old)
         const dob = document.getElementById("dob").value;
@@ -37,13 +30,12 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             const dobDate = new Date(dob);
             const today = new Date();
-            const age = today.getFullYear() - dobDate.getFullYear();
+            let age = today.getFullYear() - dobDate.getFullYear();
             const m = today.getMonth() - dobDate.getMonth();
             if (m < 0 || (m === 0 && today.getDate() < dobDate.getDate())) {
-                if (age - 1 < 13) {
-                    errors.push("You must be at least 13 years old.");
-                }
-            } else if (age < 13) {
+                age--;
+            }
+            if (age < 13) {
                 errors.push("You must be at least 13 years old.");
             }
         }

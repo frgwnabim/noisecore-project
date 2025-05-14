@@ -35,8 +35,19 @@ body.fade-in {
       filter: blur(0);
     }
   }
+html, body {
+    height: 100%;
+}
 
-/* General Styles */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
     margin: 0;
@@ -158,7 +169,6 @@ nav a:hover {
     margin-bottom: 1.5rem;
 }
 
-
 /* Top Products Section */
 .top-products {
     background: #fff;
@@ -208,8 +218,11 @@ nav a:hover {
 }
 
 .product-card h3 {
-    margin: 0.5rem 0 0.2rem 0;
-    font-size: 1.1rem;
+    color: #232733;
+    font-size: 1.08rem;
+    font-weight: bold;
+    margin: 0.7em 0 0.3em 0;
+    text-align: center;
 }
 
 .product-card p {
@@ -261,6 +274,30 @@ nav a:hover {
     margin: 0;
     font-size: 1rem;
 }
+.promo-badge {
+    display: inline-block;
+    background: linear-gradient(90deg, #ff6a00 0%, #ffb347 100%);
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: bold;
+    border-radius: 12px;
+    padding: 0.2rem 0.8rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.2rem;
+    letter-spacing: 1px;
+}
+.promo-price {
+    color: #ff6a00;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-right: 0.5em;
+}
+.original-price {
+    color: #888;
+    font-size: 1rem;
+    text-decoration: line-through;
+    margin-left: 0.2em;
+}
 
 /* Footer */
 footer {
@@ -274,7 +311,55 @@ footer {
 }
 
 /* Responsive Design */
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 1200px) {
+    .top-products,
+    .promotions {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+    }
+    .product-list,
+    .promotion-list {
+        gap: 2.2rem;
+    }
+    .product-card,
+    .promotion-card {
+        width: 220px;
+        min-width: 220px;
+        max-width: 240px;
+    }
+    .product-card h3,
+    .promotion-card h3 {
+        font-size: 1.18rem;
+    }
+}
+@media screen and (min-width: 700px) and (max-width: 1199px) {
+    .top-products,
+    .promotions {
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 1.2rem;
+        padding-right: 1.2rem;
+    }
+    .product-list,
+    .promotion-list {
+        gap: 1.2rem;
+    }
+    .product-card,
+    .promotion-card {
+        width: 180px;
+        min-width: 180px;
+        max-width: 200px;
+    }
+    .product-card h3,
+    .promotion-card h3 {
+        font-size: 1.08rem;
+    }
+}
+@media screen and (max-width: 699px) {
     nav {
         flex-direction: column;
         align-items: center;

@@ -35,8 +35,19 @@ body.fade-in {
       filter: blur(0);
     }
   }
+html, body {
+    height: 100%;
+}
 
-/* General Styles */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
     margin: 0;
@@ -153,7 +164,41 @@ footer {
 }
 
 /* Responsive Design */
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 1200px) {
+    .about-intro,
+    .about-history {
+        max-width: 1100px;
+        padding: 2.5rem 3rem;
+        margin: 2.5rem auto 2.5rem auto;
+        font-size: 1.13rem;
+    }
+    .about-intro h2,
+    .about-history h2 {
+        font-size: 2rem;
+        margin-bottom: 1.3rem;
+    }
+    .about-history ul {
+        font-size: 1.08rem;
+    }
+}
+@media screen and (min-width: 700px) and (max-width: 1199px) {
+    .about-intro,
+    .about-history {
+        max-width: 90vw;
+        padding: 2rem 1.5rem;
+        margin: 2rem auto 2rem auto;
+        font-size: 1.04rem;
+    }
+    .about-intro h2,
+    .about-history h2 {
+        font-size: 1.35rem;
+        margin-bottom: 1.1rem;
+    }
+    .about-history ul {
+        font-size: 1rem;
+    }
+}
+@media screen and (max-width: 699px) {
     nav {
         flex-direction: column;
         align-items: center;
