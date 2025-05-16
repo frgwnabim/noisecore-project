@@ -2,12 +2,14 @@ document.addEventListener('DOMContentLoaded', function () {
     // Filter products by category
     const select = document.getElementById('category');
     const cards = document.querySelectorAll('.product-card');
-    select.addEventListener('change', function () {
-        const value = select.value;
-        cards.forEach(card => {
-            card.style.display = (value === 'all' || card.dataset.category === value) ? '' : 'none';
+    if (select) {
+        select.addEventListener('change', function () {
+            const value = select.value;
+            cards.forEach(card => {
+                card.style.display = (value === 'all' || card.dataset.category === value) ? '' : 'none';
+            });
         });
-    });
+    }
 
     function adjustProductLayout() {
         const productList = document.querySelector('.product-list');
@@ -88,6 +90,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const rating = card.querySelectorAll('p')[0];
             const price = card.querySelectorAll('p')[1] || card.querySelectorAll('p')[0];
 
+            let desc = card.getAttribute('data-desc') || "No description available for this product.";
+
             let priceHtml = "";
             if (price) {
                 const promo = price.querySelector('.promo-price');
@@ -107,6 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <h3 style="margin:0 0 0.5rem 0;">${title ? title.textContent : ''}</h3>
                 <div style="font-size:1.2rem;margin-bottom:0.5rem;">${rating ? rating.textContent : ''}</div>
                 <div style="font-size:1.1rem;font-weight:bold;margin-bottom:1.2rem;">${priceHtml}</div>
+                <div style="font-size:1rem; color:#444; margin-bottom:0.5rem;">${desc}</div>
             `;
             modal.style.display = 'flex';
         });

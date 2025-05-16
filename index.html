@@ -4,11 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noisecore | Home</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
     <header>
-        <h1>Noisecore</h1>
+        <div class="logo-noisecore">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="vertical-align: middle;">
+                <circle cx="24" cy="24" r="20" fill="#232733"/>
+                <rect x="13" y="18" width="10" height="12" rx="3" fill="#ff6a00"/>
+                <rect x="23" y="21" width="3" height="6" rx="1.5" fill="#fff"/>
+                <path d="M32 24c0-2-1-4-3-5" stroke="#ffb347" stroke-width="2" stroke-linecap="round"/>
+                <path d="M32 24c0 2-1 4-3 5" stroke="#ffb347" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="18" cy="24" r="2" fill="#fff"/>
+            </svg>
+            <span class="logo-text">Noisecore</span>
+        </div>
     </header>
     <button id="menu-toggle">Menu</button>
     <nav>
@@ -31,47 +41,47 @@
         <section class="top-products">
             <h2>Top Products</h2>
             <div class="product-list">
-                <div class="product-card">
-                    <img src="earbud2.jpg" alt="Earbud Max">
+                <div class="product-card" data-desc="Earbud Max: Wireless earbuds with premium sound, long battery life, and top-tier noise cancelling.">
+                    <img src="../assets/earbud2.jpg" alt="Earbud Max">
                     <h3>Earbud Max</h3>
                     <p>⭐⭐⭐⭐⭐</p>
                     <p>
-                        <span class="promo-price">$99</span>
-                        <del class="original-price">$149</del>
+                        <span class="promo-price">Rp1.635.000</span>
+                        <del class="original-price">Rp2.477.000</del>
                     </p>
                     <div class="promo-badge">Buy 1 Get 1</div>
                 </div>
-                <div class="product-card">
-                    <img src="openear2.jpg" alt="Open-Ear Sport">
+                <div class="product-card" data-desc="Open-Ear Sport: Sports earbuds with open-ear design, comfortable for long use, sweat-resistant, and clear sound.">
+                    <img src="../assets/openear2.jpg" alt="Open-Ear Sport">
                     <h3>Open-Ear Sport</h3>
                     <p>⭐⭐⭐⭐⭐</p>
-                    <p>$179</p>
+                    <p>Rp2.956.000</p>
                 </div>
-                <div class="product-card">
-                    <img src="speaker1.jpg" alt="Speaker Boom">
+                <div class="product-card" data-desc="Speaker Boom: Portable speaker with powerful bass, 24-hour battery life, and IPX7 waterproof feature.">
+                    <img src="../assets/speaker1.jpg" alt="Speaker Boom">
                     <h3>Speaker Boom</h3>
                     <p>⭐⭐⭐⭐☆</p>
                     <p>
-                        <span class="promo-price">$159</span>
-                        <del class="original-price">$179</del>
+                        <span class="promo-price">Rp2.626.000</span>
+                        <del class="original-price">Rp2.956.000</del>
                     </p>
                     <div class="promo-badge">Bundle Deal</div>
                 </div>
-                <div class="product-card">
-                    <img src="headphone2.jpg" alt="Headphone Pro">
+                <div class="product-card" data-desc="Headphone Pro: Over-ear headphones with studio-quality sound, active noise cancelling, and premium design.">
+                    <img src="../assets/headphone2.jpg" alt="Headphone Pro">
                     <h3>Headphone Pro</h3>
                     <p>⭐⭐⭐⭐⭐</p>
                     <p>
-                        <span class="promo-price">$199</span>
-                        <del class="original-price">$249</del>
+                        <span class="promo-price">Rp3.199.000</span>
+                        <del class="original-price">Rp3.999.000</del>
                     </p>
                     <div class="promo-badge">20% OFF</div>
                 </div>
-                <div class="product-card">
-                    <img src="openear1.jpg" alt="Open-Ear Air">
+                <div class="product-card" data-desc="Open-Ear Air: Lightweight open-ear earbuds, perfect for outdoor activities, clear sound without blocking your ears.">
+                    <img src="../assets/openear1.jpg" alt="Open-Ear Air">
                     <h3>Open-Ear Air</h3>
                     <p>⭐⭐⭐⭐☆</p>
-                    <p>$159</p>
+                    <p>Rp2.626.000</p>
                 </div>
             </div>
             <div class="btn-center">
@@ -103,6 +113,6 @@
     <footer>
         <p>&copy; 2025 Noisecore</p>
     </footer>
-    <script src="home.js"></script>
+    <script src="../js/home.js"></script>
 </body>
 </html>

@@ -1,6 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("membership-form");
     const errorsDiv = document.getElementById("form-errors");
+    const agreementCheckbox = document.getElementById("agreement");
+
+    // Checkbox color change on check/uncheck
+    agreementCheckbox.addEventListener("change", function () {
+        if (agreementCheckbox.checked) {
+            agreementCheckbox.style.accentColor = "#ff6a00";
+            agreementCheckbox.style.borderColor = "#ff6a00";
+        } else {
+            agreementCheckbox.style.accentColor = "#d1d1d1";
+            agreementCheckbox.style.boxShadow = "none";
+            agreementCheckbox.style.borderColor = "#d1d1d1";
+        }
+    });
 
     form.addEventListener("submit", function (e) {
         e.preventDefault();
@@ -47,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Agreement validation
-        const agreement = document.getElementById("agreement").checked;
+        const agreement = agreementCheckbox.checked;
         if (!agreement) {
             errors.push("You must agree to the terms and conditions.");
         }
@@ -59,6 +72,10 @@ document.addEventListener("DOMContentLoaded", function () {
             errorsDiv.innerHTML = "";
             alert("🎉 Registration successful! Welcome to Noisecore Membership.");
             form.reset();
+            // Reset checkbox style after reset
+            agreementCheckbox.style.accentColor = "#d1d1d1";
+            agreementCheckbox.style.boxShadow = "none";
+            agreementCheckbox.style.borderColor = "#d1d1d1";
         }
     });
 });
